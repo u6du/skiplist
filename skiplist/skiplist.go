@@ -55,8 +55,8 @@ func (n *node) hasNext() bool {
 	return n.next() != nil
 }
 
-// hasPrevious returns true if n has a previous node.
-func (n *node) hasPrevious() bool {
+// hasPrev returns true if n has a previous node.
+func (n *node) hasPrev() bool {
 	return n.previous() != nil
 }
 
@@ -105,9 +105,9 @@ type Iterator interface {
 	// Next returns true if the iterator contains subsequent elements
 	// and advances its state to the next element if that is possible.
 	Next() (ok bool)
-	// Previous returns true if the iterator contains previous elements
+	// Prev returns true if the iterator contains previous elements
 	// and rewinds its state to the previous element if that is possible.
-	Previous() (ok bool)
+	Prev() (ok bool)
 	// Key returns the current key.
 	Key() interface{}
 	// Value returns the current value.
@@ -150,8 +150,8 @@ func (i *iter) Next() bool {
 	return true
 }
 
-func (i *iter) Previous() bool {
-	if !i.current.hasPrevious() {
+func (i *iter) Prev() bool {
+	if !i.current.hasPrev() {
 		return false
 	}
 
@@ -230,8 +230,8 @@ func (i *rangeIterator) Next() bool {
 	return true
 }
 
-func (i *rangeIterator) Previous() bool {
-	if !i.current.hasPrevious() {
+func (i *rangeIterator) Prev() bool {
+	if !i.current.hasPrev() {
 		return false
 	}
 

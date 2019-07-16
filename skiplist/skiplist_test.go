@@ -68,11 +68,11 @@ func TestEmptyNodeNext(t *testing.T) {
 func TestEmptyNodePrev(t *testing.T) {
 	n := new(node)
 	if previous := n.previous(); previous != nil {
-		t.Errorf("Previous() should be nil for an empty node.")
+		t.Errorf("Prev() should be nil for an empty node.")
 	}
 
-	if n.hasPrevious() {
-		t.Errorf("hasPrevious() should be false for an empty node.")
+	if n.hasPrev() {
+		t.Errorf("hasPrev() should be false for an empty node.")
 	}
 }
 
@@ -246,7 +246,7 @@ func TestIteration(t *testing.T) {
 		t.Errorf("Not all the items in s where iterated through (seen %d, should have seen %d). Last one seen was %d.", seen, s.Len(), lastKey)
 	}
 
-	for i.Previous() {
+	for i.Prev() {
 		if i.Key() != i.Value() {
 			t.Errorf("Wrong value for key %v: %v.", i.Key(), i.Value())
 		}
@@ -328,7 +328,7 @@ func TestRangeIteration(t *testing.T) {
 	min = 100000
 	max = -1
 
-	for i.Previous() {
+	for i.Prev() {
 		seen++
 		lastKey = i.Key().(int)
 		if lastKey > max {
@@ -416,7 +416,7 @@ func TestSanity(t *testing.T) {
 		last = i.Key().(int)
 	}
 
-	for i.Previous() {
+	for i.Prev() {
 		if last != 0 && i.Key().(int) > last {
 			t.Errorf("Not in order!")
 		}
@@ -629,7 +629,7 @@ func TestIteratorPrevHoles(t *testing.T) {
 		t.Errorf("Expected iterator to reach key 2 and value 2, got %v and %v.", i.Key(), i.Value())
 	}
 
-	if !i.Previous() {
+	if !i.Prev() {
 		t.Errorf("Expected iterator to move successfully to the previous.")
 	}
 
@@ -643,7 +643,7 @@ func TestIteratorPrevHoles(t *testing.T) {
 
 	m.Delete(1)
 
-	if !i.Previous() {
+	if !i.Prev() {
 		t.Errorf("Expected iterator to move successfully to the previous.")
 	}
 

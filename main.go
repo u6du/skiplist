@@ -46,7 +46,7 @@ func main() {
 	//  9: niner
 	//  10: ten
 
-	for unboundIterator.Previous() {
+	for unboundIterator.Prev() {
 		fmt.Printf("%d: %s\n", unboundIterator.Key(), unboundIterator.Value())
 	}
 	//  9: niner
@@ -65,7 +65,7 @@ func main() {
 	//  5: five
 	//  9: niner
 
-	for boundIterator.Previous() {
+	for boundIterator.Prev() {
 		fmt.Printf("%d: %s\n", boundIterator.Key(), boundIterator.Value())
 	}
 	// prints:
