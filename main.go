@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/ryszard/goskiplist/skiplist"
+
+	"github.com/u6du/skiplist/skiplist"
 )
 
 func main() {
@@ -105,4 +106,16 @@ func main() {
 	fmt.Printf("%d: %s\n", iterator.Key(), iterator.Value())
 	// prints:
 	//  5: five
+
+
+	iterator.Next()
+	fmt.Printf("%d: %s\n", iterator.Key(), iterator.Value())
+
+	iterator.Next()
+	fmt.Printf("%d: %s\n", iterator.Key(), iterator.Value())
+
+	iterator.Next()
+	fmt.Printf("%d: %s\n", iterator.Key(), iterator.Value())
+
+
 }
