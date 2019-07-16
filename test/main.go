@@ -13,6 +13,7 @@ func main() {
 	s.Set(0, "zero")
 	s.Set(5, "five")
 	s.Set(9, "nine")
+	s.Set(9, "nine 2")
 	s.Set(10, "ten")
 	s.Set(3, "three")
 
