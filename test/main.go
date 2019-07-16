@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/u6du/skiplist/skiplist"
+	"github.com/u6du/skiplist"
 )
 
 func main() {
@@ -107,7 +107,6 @@ func main() {
 	// prints:
 	//  5: five
 
-
 	iterator.Next()
 	fmt.Printf("%d: %s\n", iterator.Key(), iterator.Value())
 
@@ -116,6 +115,5 @@ func main() {
 
 	iterator.Next()
 	fmt.Printf("%d: %s\n", iterator.Key(), iterator.Value())
-
 
 }
